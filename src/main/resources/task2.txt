@@ -10,3 +10,8 @@ Given 2 products:
  -> name: coffee, pricePerUnit: 3.5, quantity: 3
 
 Expected total is: 22.5 (for tea) + 10.5 (for coffee) = 33.0
+
+
+Notes:
+
+As I understand the rewards should be applied to the current shopping cart not for the next one.

@@ -11,3 +11,10 @@ Given 3 products:
  -> name: cheese, pricePerUnit: 8, quantity: 2, category: food
 
 Expected total is: 9.54 (for tea) + 6.30 (for coffee) + 16 (for cheese) = 31.84
+
+
+
+
+Notes:
+
+As I understand the rewards should be applied to the current shopping cart not for the next one.
