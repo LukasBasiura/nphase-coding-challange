@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
-import static com.nphase.domain.product.ProductCategory.DRINKS;
+import static com.nphase.domain.product.ProductCategory.*;
 
 public class ShoppingCartServiceTest {
     @Test
@@ -100,18 +100,19 @@ public class ShoppingCartServiceTest {
     @Test
     @DisplayName("Calculate price for task 3")
     public void calculatePriceForTask3() {
-        BigDecimal teaPrice = BigDecimal.valueOf(5.0);
+        BigDecimal teaPrice = BigDecimal.valueOf(5.3);
         BigDecimal coffeePrice = BigDecimal.valueOf(3.5);
-        int teaQuantity = 5;
-        int coffeeQuantity = 3;
+        int teaQuantity = 2;
+        int coffeeQuantity = 2;
 
         ShoppingCart cart = new ShoppingCart(Arrays.asList(
                 new Product("Tea", teaPrice, DRINKS, teaQuantity),
-                new Product("Coffee", coffeePrice, DRINKS, coffeeQuantity)
+                new Product("Coffee", coffeePrice, DRINKS, coffeeQuantity),
+                new Product("cheese",BigDecimal.valueOf(8),FOOD,2)
         ));
 
-        ShoppingCartService service = new ShoppingCartService(new RewardService(new ProductReward()));
+        ShoppingCartService service = new ShoppingCartService(new RewardService(new CategoryReward()));
         BigDecimal result = service.calculateTotalPrice(cart);
-        Assertions.assertEquals(result, BigDecimal.valueOf(33.00).setScale(2));
+        Assertions.assertEquals(result, BigDecimal.valueOf(31.84).setScale(2));
     }
 }
